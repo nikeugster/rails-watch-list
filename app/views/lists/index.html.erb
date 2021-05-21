@@ -1,7 +1,8 @@
+<h1>My movie lists</h1>
 <ul>
   <% @lists.each do |list| %>
   <li>
-    <%= list.name %>
+    <%= link_to list.name, list_path(list.id) %>
   </li>
   <% end %>
 </ul>

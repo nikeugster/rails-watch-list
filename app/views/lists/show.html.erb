@@ -1,1 +1,13 @@
-
+<h1>list.name</h1>
+<%= link_to "Add new Movie to this List", new_list_bookmark_path(@list.id) %>
+<ul>
+  <% @list.movies.each do |movie| %>
+  <li>
+    <%= movie.title %>
+    <%= movie.rating %>
+    <%= movie.bookmarks.find { |bookmark | bookmark.list_id == @list.id}.comment %>
+    <%= movie.overview %>
+    <%= image_tag movie.poster_url, alt: "Poster of " + movie.title %>
+  </li>
+  <% end %>
+</ul>
